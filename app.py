@@ -64,7 +64,7 @@ def build_demo():
         with gr.Row():
             analyze_btn = gr.Button("Analyze", variant="primary")
             clear_btn = gr.ClearButton(
-                [image_input, document_input, audio_input, prompt],
+                [image_input, document_input, audio_input, prompt, gallery, output],
                 value="Clear",
             )
 

@@ -1,7 +1,7 @@
 import time
 import traceback
 
-import gradio as gr
+from gradio import Progress
 
 from src.model import load_models, run_gemma, MODEL_ID
 from src.loaders import LoadedContext, load_images, load_documents, load_audio
@@ -10,7 +10,7 @@ from src.prompt import build_prompt
 
 def format_error(title: str, e: Exception) -> str:
     return (
-        f"# ⚠️ {title}\n\n"
+        f"# {title}\n\n"
         f"```\n{e}\n```\n\n"
         "<details><summary>Traceback</summary>\n\n```\n"
         f"{traceback.format_exc()}\n```\n</details>"
@@ -29,9 +29,12 @@ def _build_sources_footer(ctx: LoadedContext, elapsed: float) -> str:
     return "\n".join(lines)
 
 
-def Buzy_inference(images, documents, audios, question, progress=gr.Progress()):
+def Buzy_inference(images, documents, audios, question, progress: Progress = None):
     start = time.time()
     ctx = LoadedContext()
+
+    if progress is None:
+        progress = Progress()
 
     try:
         progress(0.05, desc="Loading images...")
