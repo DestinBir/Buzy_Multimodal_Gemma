@@ -1,4 +1,3 @@
-import json
 from dataclasses import dataclass
 from typing import Optional
 
@@ -6,14 +5,12 @@ import torch
 
 try:
     from transformers import AutoProcessor, AutoModelForImageTextToText, pipeline
-    from peft import PeftModel
 except ImportError:
     AutoProcessor = None
     AutoModelForImageTextToText = None
     pipeline = None
-    PeftModel = None
 
-MODEL_ID = "DestinBir/buzy-ai-gemma4-lora"
+MODEL_ID = "DestinBir/buzy-ai-gemma4"
 WHISPER_MODEL_ID = "openai/whisper-small"
 MAX_NEW_TOKENS = 1024
 DEVICE = "cuda" if (torch is not None and torch.cuda.is_available()) else "cpu"
@@ -30,17 +27,6 @@ class ModelBundle:
 _bundle = ModelBundle()
 
 
-def _get_base_model_id() -> str:
-    try:
-        from huggingface_hub import hf_hub_download
-        path = hf_hub_download(repo_id=MODEL_ID, filename="adapter_config.json")
-        with open(path) as f:
-            cfg = json.load(f)
-        return cfg.get("base_model_name_or_path", MODEL_ID)
-    except Exception:
-        return "unsloth/gemma-4-E2B-it-unsloth-bnb-4bit"
-
-
 def load_models():
     if _bundle.loaded:
         return _bundle
@@ -48,27 +34,16 @@ def load_models():
     if AutoProcessor is None or AutoModelForImageTextToText is None:
         raise RuntimeError(
             "transformers/torch not installed. Run: "
-            "pip install torch transformers accelerate peft"
+            "pip install torch transformers accelerate"
         )
 
-    print(f"[Buzy AI] Loading multimodal model '{MODEL_ID}' on {DEVICE} ...")
+    print(f"[Buzy AI] Loading merged model '{MODEL_ID}' on {DEVICE} ...")
     _bundle.processor = AutoProcessor.from_pretrained(MODEL_ID)
-
-    try:
-        _bundle.model = AutoModelForImageTextToText.from_pretrained(
-            MODEL_ID,
-            torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
-            device_map="auto" if DEVICE == "cuda" else None,
-        )
-    except Exception:
-        base_model_id = _get_base_model_id()
-        print(f"[Buzy AI] Loading base model '{base_model_id}' and applying LoRA adapter ...")
-        base = AutoModelForImageTextToText.from_pretrained(
-            base_model_id,
-            torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
-            device_map="auto" if DEVICE == "cuda" else None,
-        )
-        _bundle.model = PeftModel.from_pretrained(base, MODEL_ID)
+    _bundle.model = AutoModelForImageTextToText.from_pretrained(
+        MODEL_ID,
+        torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
+        device_map="auto" if DEVICE == "cuda" else None,
+    )
 
     if DEVICE != "cuda":
         _bundle.model.to(DEVICE)
