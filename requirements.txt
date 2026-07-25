@@ -9,3 +9,6 @@ sentencepiece>=0.2.0
 protobuf>=3.19.5,<5.0.0
 peft>=0.15.0
 bitsandbytes>=0.46.1
+pytesseract>=0.3.10
+pandas>=2.0.0
+datasets>=2.14.0
