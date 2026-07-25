@@ -1,0 +1,602 @@
+[
+  {
+    "id": 0,
+    "domain": "Agriculture",
+    "context": "Une coopérative agricole de Kasaï a produit 374 tonnes de patate douce cette saison. Le prix au marché local est de 2022 XAF/kg. Les intrants (engrais, semences) ont coûté 4907505 XAF. La coopérative compte 488 membres.",
+    "question": "Quel est le revenu total potentiel et le bénéfice par membre ?"
+  },
+  {
+    "id": 1,
+    "domain": "Agriculture",
+    "context": "Idriss est un petit producteur de mil dans la région de Katanga. Il possède 6.49 hectares et a investi 1825843 XAF dans l'irrigation goutte-à-goutte. Le rendement attendu est de 7.44 tonnes/ha.",
+    "question": "Quel est le retour sur investissement attendu pour le système d'irrigation ?"
+  },
+  {
+    "id": 2,
+    "domain": "Mobile Money",
+    "context": "Un commerçant à Yaoundé traite en moyenne 323 transactions mobile money par jour via Wave. Le montant moyen par transaction est de 10056 XAF. Les frais sont de 1.39% par transaction.",
+    "question": "Quel est le volume quotidien traité et les frais totaux par mois ?"
+  },
+  {
+    "id": 3,
+    "domain": "Mobile Money",
+    "context": "Un agent M-Pesa à Bukavu a un float quotidien de 441549 XAF. Il traite 183 dépôts et 143 retraits par jour. Sa commission est de 0.55% sur les dépôts et 0.48% sur les retraits.",
+    "question": "Quel est le revenu journalier de l'agent M-Pesa ?"
+  },
+  {
+    "id": 4,
+    "domain": "Microfinance",
+    "context": "Une SACCO à Kisangani a accordé 68 micro-crédits ce trimestre pour un montant total de 14904248 XAF. Le taux de remboursement est de 78.02%. Le taux d'intérêt est de 18.55% par an.",
+    "question": "Quel est le montant moyen des prêts et le revenu d'intérêts attendu ?"
+  },
+  {
+    "id": 5,
+    "domain": "Microfinance",
+    "context": "Un groupe de 16 femmes à Équateur a formé une tontine. Chaque membre contribue 15340 XAF par mois. Le fonds est prêté aux membres à 4.53% par mois. 3 membres sont en défaut de paiement.",
+    "question": "Quel est le capital mensuel de la tontine et le taux de défaut ?"
+  },
+  {
+    "id": 6,
+    "domain": "Supply Chain",
+    "context": "Un exportateur de bétail à Ghana doit expédier 96 tonnes par conteneur. Le fret maritime coûte 2694 USD par conteneur. Le délai de livraison vers Le Havre est de 13 jours.",
+    "question": "Quel est le coût de fret par tonne et le temps de transit total ?"
+  },
+  {
+    "id": 7,
+    "domain": "Supply Chain",
+    "context": "Un transporteur routier à Mozambique facture 136 XAF par tonne-km. La distance entre Goma et Mbuji-Mayi est de 2069 km. Le camion transporte 28.4 tonnes. Le carburant coûte 1128 XAF par litre et la consommation est de 23.96 L/100km.",
+    "question": "Quelle est la marge bénéficiaire par trajet ?"
+  },
+  {
+    "id": 8,
+    "domain": "Energy",
+    "context": "Une entreprise installe des kits solaires domestiques à Kasaï. Chaque kit coûte 316454 XAF et permet d'économiser 14879 XAF par mois en kérosène. 658 kits ont été vendus ce trimestre.",
+    "question": "Quelle est la période de retour sur investissement pour un kit solaire ?"
+  },
+  {
+    "id": 9,
+    "domain": "Energy",
+    "context": "Un mini-grid solaire dans le village de Walungu à Mozambique produit 135 kW. Il dessert 1508 ménages qui paient 281 XAF/kWh. La production moyenne est de 3975 kWh par jour.",
+    "question": "Quel est le revenu mensuel du mini-grid et la consommation moyenne par ménage ?"
+  },
+  {
+    "id": 10,
+    "domain": "Healthcare",
+    "context": "Un centre de santé à Kenya traite 2963 patients par mois. Les frais de consultation sont de 12936 XAF. Les médicaments coûtent en moyenne 3652 XAF par patient. Le centre emploie 44 employés avec une masse salariale de 2605975 XAF/mois.",
+    "question": "Le centre est-il financièrement viable ?"
+  },
+  {
+    "id": 11,
+    "domain": "Healthcare",
+    "context": "Une mutuelle de santé à Goma compte 5582 membres. Chaque membre paie une prime de 1560 XAF par mois. Le taux d'utilisation des services est de 49.73%. Le coût moyen par sinistre est de 28424 XAF.",
+    "question": "Quel est le ratio sinistres/primes et la marge de la mutuelle ?"
+  },
+  {
+    "id": 12,
+    "domain": "Education",
+    "context": "Une école privée à Goma a 1728 élèves. Les frais de scolarité sont de 1332039 XAF par an. Les salaires des 12 enseignants coûtent 1492796 XAF par mois. Les autres frais de fonctionnement sont de 901383 XAF par mois.",
+    "question": "Quelle est la marge annuelle de l'école et le coût par élève ?"
+  },
+  {
+    "id": 13,
+    "domain": "Education",
+    "context": "Un programme de bourses dans Kasaï soutient 100 étudiants. Chaque bourse couvre 56% des frais. Le budget total est de 49236820 XAF. Les frais de scolarité moyens sont de 243328 XAF par étudiant.",
+    "question": "Quel est le montant moyen d'une bourse et combien d'étudiants peuvent être soutenus ?"
+  },
+  {
+    "id": 14,
+    "domain": "Mining",
+    "context": "Une mine artisanale de cuivre dans la province de Kasaï-Oriental en Gabon produit 14 kg par mois. Le prix au marché est de 111 USD/kg. Les 366 mineurs se partagent les revenus. Les coûts d'extraction sont de 36 USD/kg.",
+    "question": "Quel est le revenu mensuel par mineur et la marge totale ?"
+  },
+  {
+    "id": 15,
+    "domain": "Mining",
+    "context": "Un comptoir d'achat de cobalt à Kenya achète à 48 USD/g et revend à 46 USD/g. Le volume mensuel est de 461 grammes. Les frais d'exportation sont de 6.32%.",
+    "question": "Quelle est la marge mensuelle nette du comptoir ?"
+  },
+  {
+    "id": 16,
+    "domain": "Telecom",
+    "context": "Un opérateur télécom à Côte d'Ivoire compte 6316811 abonnés. L'ARPU (revenu moyen par utilisateur) est de 14045 XAF/mois. Le coût d'acquisition client est de 896 XAF. Le taux de churn mensuel est de 1.89%.",
+    "question": "Quel est le revenu mensuel total et la valeur vie client (LTV) ?"
+  },
+  {
+    "id": 17,
+    "domain": "Telecom",
+    "context": "Un fournisseur d'accès Internet à Mbuji-Mayi a 13045 clients fibre. Le forfait mensuel est de 49002 XAF. Le coût d'infrastructure est de 383271952 XAF amorti sur 9 ans. Les coûts opérationnels sont de 31684210 XAF par mois.",
+    "question": "Quel est le seuil de rentabilité et le bénéfice mensuel ?"
+  },
+  {
+    "id": 18,
+    "domain": "Real Estate",
+    "context": "Un promoteur construit 457 logements sociaux à Lubumbashi. Le coût de construction est de 14047861 XAF par unité. Le prix de vente plafonné est de 7366586 XAF. Le terrain a coûté 56502679 XAF.",
+    "question": "Quelle est la marge du promoteur et le prix au m² ?"
+  },
+  {
+    "id": 19,
+    "domain": "Real Estate",
+    "context": "Un immeuble de bureaux à Kinshasa a 7656 m² louables. Le loyer est de 14967 XAF/m²/mois. Le taux d'occupation est de 56.76%. Les charges sont de 1032 XAF/m²/mois.",
+    "question": "Quel est le revenu locatif annuel net ?"
+  },
+  {
+    "id": 20,
+    "domain": "Cross-border Trade",
+    "context": "Un commerçant importe caoutchouc de Turquie vers Cotonou. La valeur CAF est de 907984 USD. Les droits de douane sont de 25.62%. La TVA est de 19.55%. Les frais de dédouanement sont de 479975 USD.",
+    "question": "Quel est le coût total dédouané et la taxe effective ?"
+  },
+  {
+    "id": 21,
+    "domain": "Cross-border Trade",
+    "context": "Un exportateur de poisson séché vers Shanghai a un prix FOB de 197 USD/tonne. Le fret est de 2240 USD/tonne. L'assurance est de 2.26% de la valeur CAF. Le taux de change est de 580 XAF/USD.",
+    "question": "Quel est le prix CAF en XAF par tonne ?"
+  },
+  {
+    "id": 22,
+    "domain": "Logistics",
+    "context": "Un entrepôt à Bukavu a une capacité de 3778 palettes. Le taux d'occupation est de 76.36%. Le stockage coûte 461 XAF par palette par jour. La rotation des stocks est de 27 jours.",
+    "question": "Quel est le revenu mensuel du stockage et le coût d'immobilisation ?"
+  },
+  {
+    "id": 23,
+    "domain": "Logistics",
+    "context": "Une flotte de 16 camions à Bamako parcourt 11116 km par mois. La consommation est de 27.83 L/100km. Le gazole coûte 1292 XAF/L. L'entretien est de 46 XAF/km.",
+    "question": "Quel est le coût total d'exploitation de la flotte par mois ?"
+  },
+  {
+    "id": 24,
+    "domain": "Agriculture",
+    "context": "Une coopérative agricole de Lualaba a produit 123 tonnes de patate douce cette saison. Le prix au marché local est de 785 XAF/kg. Les intrants (engrais, semences) ont coûté 2135694 XAF. La coopérative compte 468 membres.",
+    "question": "Quel est le revenu total potentiel et le bénéfice par membre ?"
+  },
+  {
+    "id": 25,
+    "domain": "Agriculture",
+    "context": "Rachid est un petit producteur de café dans la région de Katanga. Il possède 1.18 hectares et a investi 1190487 XAF dans l'irrigation goutte-à-goutte. Le rendement attendu est de 2.29 tonnes/ha.",
+    "question": "Quel est le retour sur investissement attendu pour le système d'irrigation ?"
+  },
+  {
+    "id": 26,
+    "domain": "Mobile Money",
+    "context": "Un commerçant à Kananga traite en moyenne 140 transactions mobile money par jour via Orange Money. Le montant moyen par transaction est de 41647 XAF. Les frais sont de 1.46% par transaction.",
+    "question": "Quel est le volume quotidien traité et les frais totaux par mois ?"
+  },
+  {
+    "id": 27,
+    "domain": "Mobile Money",
+    "context": "Un agent M-Pesa à Cotonou a un float quotidien de 3679065 XAF. Il traite 97 dépôts et 121 retraits par jour. Sa commission est de 1.19% sur les dépôts et 0.32% sur les retraits.",
+    "question": "Quel est le revenu journalier de l'agent M-Pesa ?"
+  },
+  {
+    "id": 28,
+    "domain": "Microfinance",
+    "context": "Une SACCO à Dar es Salaam a accordé 230 micro-crédits ce trimestre pour un montant total de 61839552 XAF. Le taux de remboursement est de 95.42%. Le taux d'intérêt est de 20.25% par an.",
+    "question": "Quel est le montant moyen des prêts et le revenu d'intérêts attendu ?"
+  },
+  {
+    "id": 29,
+    "domain": "Microfinance",
+    "context": "Un groupe de 48 femmes à Tanganyika a formé une tontine. Chaque membre contribue 36193 XAF par mois. Le fonds est prêté aux membres à 2.45% par mois. 6 membres sont en défaut de paiement.",
+    "question": "Quel est le capital mensuel de la tontine et le taux de défaut ?"
+  },
+  {
+    "id": 30,
+    "domain": "Supply Chain",
+    "context": "Un exportateur de banane à Angola doit expédier 76 tonnes par conteneur. Le fret maritime coûte 4828 USD par conteneur. Le délai de livraison vers Le Havre est de 24 jours.",
+    "question": "Quel est le coût de fret par tonne et le temps de transit total ?"
+  },
+  {
+    "id": 31,
+    "domain": "Supply Chain",
+    "context": "Un transporteur routier à Gabon facture 166 XAF par tonne-km. La distance entre Bouaké et Kisangani est de 842 km. Le camion transporte 9.13 tonnes. Le carburant coûte 1443 XAF par litre et la consommation est de 25.64 L/100km.",
+    "question": "Quelle est la marge bénéficiaire par trajet ?"
+  },
+  {
+    "id": 32,
+    "domain": "Energy",
+    "context": "Une entreprise installe des kits solaires domestiques à Lubumbashi. Chaque kit coûte 221428 XAF et permet d'économiser 14481 XAF par mois en kérosène. 661 kits ont été vendus ce trimestre.",
+    "question": "Quelle est la période de retour sur investissement pour un kit solaire ?"
+  },
+  {
+    "id": 33,
+    "domain": "Energy",
+    "context": "Un mini-grid solaire dans le village de Fizi à Rwanda produit 312 kW. Il dessert 1186 ménages qui paient 328 XAF/kWh. La production moyenne est de 2859 kWh par jour.",
+    "question": "Quel est le revenu mensuel du mini-grid et la consommation moyenne par ménage ?"
+  },
+  {
+    "id": 34,
+    "domain": "Healthcare",
+    "context": "Un centre de santé à Haut-Lomami traite 1838 patients par mois. Les frais de consultation sont de 8068 XAF. Les médicaments coûtent en moyenne 5238 XAF par patient. Le centre emploie 21 employés avec une masse salariale de 1303689 XAF/mois.",
+    "question": "Le centre est-il financièrement viable ?"
+  },
+  {
+    "id": 35,
+    "domain": "Healthcare",
+    "context": "Une mutuelle de santé à Bouaké compte 3500 membres. Chaque membre paie une prime de 18002 XAF par mois. Le taux d'utilisation des services est de 28.96%. Le coût moyen par sinistre est de 50142 XAF.",
+    "question": "Quel est le ratio sinistres/primes et la marge de la mutuelle ?"
+  },
+  {
+    "id": 36,
+    "domain": "Education",
+    "context": "Une école privée à Douala a 1244 élèves. Les frais de scolarité sont de 509637 XAF par an. Les salaires des 16 enseignants coûtent 1801593 XAF par mois. Les autres frais de fonctionnement sont de 330854 XAF par mois.",
+    "question": "Quelle est la marge annuelle de l'école et le coût par élève ?"
+  },
+  {
+    "id": 37,
+    "domain": "Education",
+    "context": "Un programme de bourses dans Kasaï soutient 39 étudiants. Chaque bourse couvre 68% des frais. Le budget total est de 9920438 XAF. Les frais de scolarité moyens sont de 552793 XAF par étudiant.",
+    "question": "Quel est le montant moyen d'une bourse et combien d'étudiants peuvent être soutenus ?"
+  },
+  {
+    "id": 38,
+    "domain": "Mining",
+    "context": "Une mine artisanale de cobalt dans la province de Nord-Kivu en Angola produit 27 kg par mois. Le prix au marché est de 86 USD/kg. Les 267 mineurs se partagent les revenus. Les coûts d'extraction sont de 97 USD/kg.",
+    "question": "Quel est le revenu mensuel par mineur et la marge totale ?"
+  },
+  {
+    "id": 39,
+    "domain": "Mining",
+    "context": "Un comptoir d'achat de cobalt à Cotonou achète à 27 USD/g et revend à 144 USD/g. Le volume mensuel est de 4819 grammes. Les frais d'exportation sont de 3.85%.",
+    "question": "Quelle est la marge mensuelle nette du comptoir ?"
+  },
+  {
+    "id": 40,
+    "domain": "Telecom",
+    "context": "Un opérateur télécom à Angola compte 4970183 abonnés. L'ARPU (revenu moyen par utilisateur) est de 11202 XAF/mois. Le coût d'acquisition client est de 2138 XAF. Le taux de churn mensuel est de 1.25%.",
+    "question": "Quel est le revenu mensuel total et la valeur vie client (LTV) ?"
+  },
+  {
+    "id": 41,
+    "domain": "Telecom",
+    "context": "Un fournisseur d'accès Internet à Addis-Abeba a 17973 clients fibre. Le forfait mensuel est de 56867 XAF. Le coût d'infrastructure est de 185396770 XAF amorti sur 14 ans. Les coûts opérationnels sont de 42156588 XAF par mois.",
+    "question": "Quel est le seuil de rentabilité et le bénéfice mensuel ?"
+  },
+  {
+    "id": 42,
+    "domain": "Real Estate",
+    "context": "Un promoteur construit 393 logements sociaux à Lomé. Le coût de construction est de 16533916 XAF par unité. Le prix de vente plafonné est de 17477232 XAF. Le terrain a coûté 66246632 XAF.",
+    "question": "Quelle est la marge du promoteur et le prix au m² ?"
+  },
+  {
+    "id": 43,
+    "domain": "Real Estate",
+    "context": "Un immeuble de bureaux à Kigali a 2471 m² louables. Le loyer est de 48236 XAF/m²/mois. Le taux d'occupation est de 76.64%. Les charges sont de 2803 XAF/m²/mois.",
+    "question": "Quel est le revenu locatif annuel net ?"
+  },
+  {
+    "id": 44,
+    "domain": "Cross-border Trade",
+    "context": "Un commerçant importe thé de France vers Kigali. La valeur CAF est de 177210 USD. Les droits de douane sont de 21.30%. La TVA est de 17.83%. Les frais de dédouanement sont de 1487701 USD.",
+    "question": "Quel est le coût total dédouané et la taxe effective ?"
+  },
+  {
+    "id": 45,
+    "domain": "Cross-border Trade",
+    "context": "Un exportateur de poisson séché vers Dubaï a un prix FOB de 5631 USD/tonne. Le fret est de 1940 USD/tonne. L'assurance est de 2.42% de la valeur CAF. Le taux de change est de 2497 XAF/USD.",
+    "question": "Quel est le prix CAF en XAF par tonne ?"
+  },
+  {
+    "id": 46,
+    "domain": "Logistics",
+    "context": "Un entrepôt à Niamey a une capacité de 8983 palettes. Le taux d'occupation est de 88.25%. Le stockage coûte 507 XAF par palette par jour. La rotation des stocks est de 35 jours.",
+    "question": "Quel est le revenu mensuel du stockage et le coût d'immobilisation ?"
+  },
+  {
+    "id": 47,
+    "domain": "Logistics",
+    "context": "Une flotte de 82 camions à Maputo parcourt 3700 km par mois. La consommation est de 48.47 L/100km. Le gazole coûte 830 XAF/L. L'entretien est de 31 XAF/km.",
+    "question": "Quel est le coût total d'exploitation de la flotte par mois ?"
+  },
+  {
+    "id": 48,
+    "domain": "Agriculture",
+    "context": "Une coopérative agricole de Kasaï a produit 336 tonnes de mil cette saison. Le prix au marché local est de 2967 XAF/kg. Les intrants (engrais, semences) ont coûté 281004 XAF. La coopérative compte 175 membres.",
+    "question": "Quel est le revenu total potentiel et le bénéfice par membre ?"
+  },
+  {
+    "id": 49,
+    "domain": "Agriculture",
+    "context": "Paul est un petit producteur de mil dans la région de Kasaï. Il possède 4.94 hectares et a investi 1820178 XAF dans l'irrigation goutte-à-goutte. Le rendement attendu est de 3.88 tonnes/ha.",
+    "question": "Quel est le retour sur investissement attendu pour le système d'irrigation ?"
+  },
+  {
+    "id": 50,
+    "domain": "Mobile Money",
+    "context": "Un commerçant à Lubumbashi traite en moyenne 103 transactions mobile money par jour via MTN Mobile Money. Le montant moyen par transaction est de 23670 XAF. Les frais sont de 2.72% par transaction.",
+    "question": "Quel est le volume quotidien traité et les frais totaux par mois ?"
+  },
+  {
+    "id": 51,
+    "domain": "Mobile Money",
+    "context": "Un agent M-Pesa à Bukavu a un float quotidien de 657945 XAF. Il traite 41 dépôts et 82 retraits par jour. Sa commission est de 0.75% sur les dépôts et 1.12% sur les retraits.",
+    "question": "Quel est le revenu journalier de l'agent M-Pesa ?"
+  },
+  {
+    "id": 52,
+    "domain": "Microfinance",
+    "context": "Une SACCO à Bouaké a accordé 57 micro-crédits ce trimestre pour un montant total de 23879723 XAF. Le taux de remboursement est de 74.30%. Le taux d'intérêt est de 14.38% par an.",
+    "question": "Quel est le montant moyen des prêts et le revenu d'intérêts attendu ?"
+  },
+  {
+    "id": 53,
+    "domain": "Microfinance",
+    "context": "Un groupe de 7 femmes à Lualaba a formé une tontine. Chaque membre contribue 4610 XAF par mois. Le fonds est prêté aux membres à 3.51% par mois. 5 membres sont en défaut de paiement.",
+    "question": "Quel est le capital mensuel de la tontine et le taux de défaut ?"
+  },
+  {
+    "id": 54,
+    "domain": "Supply Chain",
+    "context": "Un exportateur de bétail à Sénégal doit expédier 77 tonnes par conteneur. Le fret maritime coûte 698 USD par conteneur. Le délai de livraison vers Anvers est de 41 jours.",
+    "question": "Quel est le coût de fret par tonne et le temps de transit total ?"
+  },
+  {
+    "id": 55,
+    "domain": "Supply Chain",
+    "context": "Un transporteur routier à Tanzanie facture 80 XAF par tonne-km. La distance entre Kinshasa et Kisangani est de 2378 km. Le camion transporte 25.98 tonnes. Le carburant coûte 897 XAF par litre et la consommation est de 28.52 L/100km.",
+    "question": "Quelle est la marge bénéficiaire par trajet ?"
+  },
+  {
+    "id": 56,
+    "domain": "Energy",
+    "context": "Une entreprise installe des kits solaires domestiques à Tanganyika. Chaque kit coûte 119245 XAF et permet d'économiser 13163 XAF par mois en kérosène. 628 kits ont été vendus ce trimestre.",
+    "question": "Quelle est la période de retour sur investissement pour un kit solaire ?"
+  },
+  {
+    "id": 57,
+    "domain": "Energy",
+    "context": "Un mini-grid solaire dans le village de Mwandiga à Tanzanie produit 393 kW. Il dessert 988 ménages qui paient 452 XAF/kWh. La production moyenne est de 3945 kWh par jour.",
+    "question": "Quel est le revenu mensuel du mini-grid et la consommation moyenne par ménage ?"
+  },
+  {
+    "id": 58,
+    "domain": "Healthcare",
+    "context": "Un centre de santé à Kasaï traite 3627 patients par mois. Les frais de consultation sont de 8763 XAF. Les médicaments coûtent en moyenne 5418 XAF par patient. Le centre emploie 30 employés avec une masse salariale de 3492289 XAF/mois.",
+    "question": "Le centre est-il financièrement viable ?"
+  },
+  {
+    "id": 59,
+    "domain": "Healthcare",
+    "context": "Une mutuelle de santé à Kananga compte 6755 membres. Chaque membre paie une prime de 18604 XAF par mois. Le taux d'utilisation des services est de 45.20%. Le coût moyen par sinistre est de 39589 XAF.",
+    "question": "Quel est le ratio sinistres/primes et la marge de la mutuelle ?"
+  },
+  {
+    "id": 60,
+    "domain": "Education",
+    "context": "Une école privée à Kisangani a 987 élèves. Les frais de scolarité sont de 914767 XAF par an. Les salaires des 33 enseignants coûtent 770474 XAF par mois. Les autres frais de fonctionnement sont de 326551 XAF par mois.",
+    "question": "Quelle est la marge annuelle de l'école et le coût par élève ?"
+  },
+  {
+    "id": 61,
+    "domain": "Education",
+    "context": "Un programme de bourses dans Côte d'Ivoire centrale soutient 176 étudiants. Chaque bourse couvre 70% des frais. Le budget total est de 28702227 XAF. Les frais de scolarité moyens sont de 600597 XAF par étudiant.",
+    "question": "Quel est le montant moyen d'une bourse et combien d'étudiants peuvent être soutenus ?"
+  },
+  {
+    "id": 62,
+    "domain": "Mining",
+    "context": "Une mine artisanale de manganèse dans la province de Kasaï-Oriental en Gabon produit 10 kg par mois. Le prix au marché est de 421 USD/kg. Les 130 mineurs se partagent les revenus. Les coûts d'extraction sont de 164 USD/kg.",
+    "question": "Quel est le revenu mensuel par mineur et la marge totale ?"
+  },
+  {
+    "id": 63,
+    "domain": "Mining",
+    "context": "Un comptoir d'achat de coltan à Ghana achète à 24 USD/g et revend à 46 USD/g. Le volume mensuel est de 3837 grammes. Les frais d'exportation sont de 2.07%.",
+    "question": "Quelle est la marge mensuelle nette du comptoir ?"
+  },
+  {
+    "id": 64,
+    "domain": "Telecom",
+    "context": "Un opérateur télécom à Ghana compte 16818234 abonnés. L'ARPU (revenu moyen par utilisateur) est de 5323 XAF/mois. Le coût d'acquisition client est de 1572 XAF. Le taux de churn mensuel est de 4.79%.",
+    "question": "Quel est le revenu mensuel total et la valeur vie client (LTV) ?"
+  },
+  {
+    "id": 65,
+    "domain": "Telecom",
+    "context": "Un fournisseur d'accès Internet à Mbuji-Mayi a 18382 clients fibre. Le forfait mensuel est de 78834 XAF. Le coût d'infrastructure est de 111866235 XAF amorti sur 10 ans. Les coûts opérationnels sont de 7410120 XAF par mois.",
+    "question": "Quel est le seuil de rentabilité et le bénéfice mensuel ?"
+  },
+  {
+    "id": 66,
+    "domain": "Real Estate",
+    "context": "Un promoteur construit 229 logements sociaux à Kinshasa. Le coût de construction est de 10773473 XAF par unité. Le prix de vente plafonné est de 11359815 XAF. Le terrain a coûté 391479417 XAF.",
+    "question": "Quelle est la marge du promoteur et le prix au m² ?"
+  },
+  {
+    "id": 67,
+    "domain": "Real Estate",
+    "context": "Un immeuble de bureaux à Mbuji-Mayi a 4466 m² louables. Le loyer est de 5594 XAF/m²/mois. Le taux d'occupation est de 58.13%. Les charges sont de 4940 XAF/m²/mois.",
+    "question": "Quel est le revenu locatif annuel net ?"
+  },
+  {
+    "id": 68,
+    "domain": "Cross-border Trade",
+    "context": "Un commerçant importe cajou de Émirats Arabes Unis vers Niamey. La valeur CAF est de 575724 USD. Les droits de douane sont de 16.41%. La TVA est de 17.73%. Les frais de dédouanement sont de 514016 USD.",
+    "question": "Quel est le coût total dédouané et la taxe effective ?"
+  },
+  {
+    "id": 69,
+    "domain": "Cross-border Trade",
+    "context": "Un exportateur de mangue vers Rotterdam a un prix FOB de 1509 USD/tonne. Le fret est de 2776 USD/tonne. L'assurance est de 1.63% de la valeur CAF. Le taux de change est de 1429 XAF/USD.",
+    "question": "Quel est le prix CAF en XAF par tonne ?"
+  },
+  {
+    "id": 70,
+    "domain": "Logistics",
+    "context": "Un entrepôt à Accra a une capacité de 2308 palettes. Le taux d'occupation est de 87.25%. Le stockage coûte 424 XAF par palette par jour. La rotation des stocks est de 49 jours.",
+    "question": "Quel est le revenu mensuel du stockage et le coût d'immobilisation ?"
+  },
+  {
+    "id": 71,
+    "domain": "Logistics",
+    "context": "Une flotte de 19 camions à Kinshasa parcourt 657 km par mois. La consommation est de 38.33 L/100km. Le gazole coûte 855 XAF/L. L'entretien est de 11 XAF/km.",
+    "question": "Quel est le coût total d'exploitation de la flotte par mois ?"
+  },
+  {
+    "id": 72,
+    "domain": "Agriculture",
+    "context": "Une coopérative agricole de Tanganyika a produit 241 tonnes de banane cette saison. Le prix au marché local est de 1388 XAF/kg. Les intrants (engrais, semences) ont coûté 868494 XAF. La coopérative compte 170 membres.",
+    "question": "Quel est le revenu total potentiel et le bénéfice par membre ?"
+  },
+  {
+    "id": 73,
+    "domain": "Agriculture",
+    "context": "Safiya est un petit producteur de café dans la région de Haut-Lomami. Il possède 15.96 hectares et a investi 62340 XAF dans l'irrigation goutte-à-goutte. Le rendement attendu est de 1.96 tonnes/ha.",
+    "question": "Quel est le retour sur investissement attendu pour le système d'irrigation ?"
+  },
+  {
+    "id": 74,
+    "domain": "Mobile Money",
+    "context": "Un commerçant à Niamey traite en moyenne 388 transactions mobile money par jour via Orange Money. Le montant moyen par transaction est de 46387 XAF. Les frais sont de 2.51% par transaction.",
+    "question": "Quel est le volume quotidien traité et les frais totaux par mois ?"
+  },
+  {
+    "id": 75,
+    "domain": "Mobile Money",
+    "context": "Un agent M-Pesa à Kisangani a un float quotidien de 3256558 XAF. Il traite 169 dépôts et 128 retraits par jour. Sa commission est de 0.85% sur les dépôts et 1.33% sur les retraits.",
+    "question": "Quel est le revenu journalier de l'agent M-Pesa ?"
+  },
+  {
+    "id": 76,
+    "domain": "Microfinance",
+    "context": "Une SACCO à Douala a accordé 384 micro-crédits ce trimestre pour un montant total de 5510863 XAF. Le taux de remboursement est de 86.86%. Le taux d'intérêt est de 10.80% par an.",
+    "question": "Quel est le montant moyen des prêts et le revenu d'intérêts attendu ?"
+  },
+  {
+    "id": 77,
+    "domain": "Microfinance",
+    "context": "Un groupe de 34 femmes à Nord-Kivu a formé une tontine. Chaque membre contribue 25783 XAF par mois. Le fonds est prêté aux membres à 4.65% par mois. 6 membres sont en défaut de paiement.",
+    "question": "Quel est le capital mensuel de la tontine et le taux de défaut ?"
+  },
+  {
+    "id": 78,
+    "domain": "Supply Chain",
+    "context": "Un exportateur de thé à Bénin doit expédier 91 tonnes par conteneur. Le fret maritime coûte 3622 USD par conteneur. Le délai de livraison vers Rotterdam est de 40 jours.",
+    "question": "Quel est le coût de fret par tonne et le temps de transit total ?"
+  },
+  {
+    "id": 79,
+    "domain": "Supply Chain",
+    "context": "Un transporteur routier à Rwanda facture 53 XAF par tonne-km. La distance entre Bouaké et Goma est de 2150 km. Le camion transporte 7.57 tonnes. Le carburant coûte 1598 XAF par litre et la consommation est de 25.94 L/100km.",
+    "question": "Quelle est la marge bénéficiaire par trajet ?"
+  },
+  {
+    "id": 80,
+    "domain": "Energy",
+    "context": "Une entreprise installe des kits solaires domestiques à Katanga. Chaque kit coûte 194694 XAF et permet d'économiser 13460 XAF par mois en kérosène. 86 kits ont été vendus ce trimestre.",
+    "question": "Quelle est la période de retour sur investissement pour un kit solaire ?"
+  },
+  {
+    "id": 81,
+    "domain": "Energy",
+    "context": "Un mini-grid solaire dans le village de Masisi à Burkina Faso produit 261 kW. Il dessert 1706 ménages qui paient 451 XAF/kWh. La production moyenne est de 3955 kWh par jour.",
+    "question": "Quel est le revenu mensuel du mini-grid et la consommation moyenne par ménage ?"
+  },
+  {
+    "id": 82,
+    "domain": "Healthcare",
+    "context": "Un centre de santé à Kasaï traite 852 patients par mois. Les frais de consultation sont de 7428 XAF. Les médicaments coûtent en moyenne 7696 XAF par patient. Le centre emploie 34 employés avec une masse salariale de 3709564 XAF/mois.",
+    "question": "Le centre est-il financièrement viable ?"
+  },
+  {
+    "id": 83,
+    "domain": "Healthcare",
+    "context": "Une mutuelle de santé à Kinshasa compte 2753 membres. Chaque membre paie une prime de 3119 XAF par mois. Le taux d'utilisation des services est de 32.87%. Le coût moyen par sinistre est de 63129 XAF.",
+    "question": "Quel est le ratio sinistres/primes et la marge de la mutuelle ?"
+  },
+  {
+    "id": 84,
+    "domain": "Education",
+    "context": "Une école privée à Goma a 440 élèves. Les frais de scolarité sont de 1720045 XAF par an. Les salaires des 14 enseignants coûtent 454253 XAF par mois. Les autres frais de fonctionnement sont de 646455 XAF par mois.",
+    "question": "Quelle est la marge annuelle de l'école et le coût par élève ?"
+  },
+  {
+    "id": 85,
+    "domain": "Education",
+    "context": "Un programme de bourses dans Ituri soutient 142 étudiants. Chaque bourse couvre 30% des frais. Le budget total est de 26811522 XAF. Les frais de scolarité moyens sont de 114081 XAF par étudiant.",
+    "question": "Quel est le montant moyen d'une bourse et combien d'étudiants peuvent être soutenus ?"
+  },
+  {
+    "id": 86,
+    "domain": "Mining",
+    "context": "Une mine artisanale de cobalt dans la province de Kasaï-Central en Angola produit 11 kg par mois. Le prix au marché est de 496 USD/kg. Les 68 mineurs se partagent les revenus. Les coûts d'extraction sont de 81 USD/kg.",
+    "question": "Quel est le revenu mensuel par mineur et la marge totale ?"
+  },
+  {
+    "id": 87,
+    "domain": "Mining",
+    "context": "Un comptoir d'achat de cuivre à Cameroun achète à 84 USD/g et revend à 145 USD/g. Le volume mensuel est de 4682 grammes. Les frais d'exportation sont de 2.16%.",
+    "question": "Quelle est la marge mensuelle nette du comptoir ?"
+  },
+  {
+    "id": 88,
+    "domain": "Telecom",
+    "context": "Un opérateur télécom à Sénégal compte 15641325 abonnés. L'ARPU (revenu moyen par utilisateur) est de 14476 XAF/mois. Le coût d'acquisition client est de 2202 XAF. Le taux de churn mensuel est de 2.41%.",
+    "question": "Quel est le revenu mensuel total et la valeur vie client (LTV) ?"
+  },
+  {
+    "id": 89,
+    "domain": "Telecom",
+    "context": "Un fournisseur d'accès Internet à Brazzaville a 44392 clients fibre. Le forfait mensuel est de 17198 XAF. Le coût d'infrastructure est de 194813248 XAF amorti sur 6 ans. Les coûts opérationnels sont de 47094970 XAF par mois.",
+    "question": "Quel est le seuil de rentabilité et le bénéfice mensuel ?"
+  },
+  {
+    "id": 90,
+    "domain": "Real Estate",
+    "context": "Un promoteur construit 212 logements sociaux à Cotonou. Le coût de construction est de 19360441 XAF par unité. Le prix de vente plafonné est de 28710845 XAF. Le terrain a coûté 350135542 XAF.",
+    "question": "Quelle est la marge du promoteur et le prix au m² ?"
+  },
+  {
+    "id": 91,
+    "domain": "Real Estate",
+    "context": "Un immeuble de bureaux à Dar es Salaam a 3461 m² louables. Le loyer est de 25666 XAF/m²/mois. Le taux d'occupation est de 75.61%. Les charges sont de 1944 XAF/m²/mois.",
+    "question": "Quel est le revenu locatif annuel net ?"
+  },
+  {
+    "id": 92,
+    "domain": "Cross-border Trade",
+    "context": "Un commerçant importe coton de Turquie vers Abidjan. La valeur CAF est de 651036 USD. Les droits de douane sont de 21.73%. La TVA est de 17.21%. Les frais de dédouanement sont de 1480405 USD.",
+    "question": "Quel est le coût total dédouané et la taxe effective ?"
+  },
+  {
+    "id": 93,
+    "domain": "Cross-border Trade",
+    "context": "Un exportateur de thé vers Rotterdam a un prix FOB de 7734 USD/tonne. Le fret est de 2167 USD/tonne. L'assurance est de 1.23% de la valeur CAF. Le taux de change est de 1771 XAF/USD.",
+    "question": "Quel est le prix CAF en XAF par tonne ?"
+  },
+  {
+    "id": 94,
+    "domain": "Logistics",
+    "context": "Un entrepôt à Kinshasa a une capacité de 8416 palettes. Le taux d'occupation est de 82.82%. Le stockage coûte 56 XAF par palette par jour. La rotation des stocks est de 59 jours.",
+    "question": "Quel est le revenu mensuel du stockage et le coût d'immobilisation ?"
+  },
+  {
+    "id": 95,
+    "domain": "Logistics",
+    "context": "Une flotte de 98 camions à Bamako parcourt 10293 km par mois. La consommation est de 40.39 L/100km. Le gazole coûte 1941 XAF/L. L'entretien est de 59 XAF/km.",
+    "question": "Quel est le coût total d'exploitation de la flotte par mois ?"
+  },
+  {
+    "id": 96,
+    "domain": "Agriculture",
+    "context": "Une coopérative agricole de Lualaba a produit 494 tonnes de cajou cette saison. Le prix au marché local est de 2477 XAF/kg. Les intrants (engrais, semences) ont coûté 509187 XAF. La coopérative compte 398 membres.",
+    "question": "Quel est le revenu total potentiel et le bénéfice par membre ?"
+  },
+  {
+    "id": 97,
+    "domain": "Agriculture",
+    "context": "Mamadou est un petit producteur de cajou dans la région de Lualaba. Il possède 19.59 hectares et a investi 487638 XAF dans l'irrigation goutte-à-goutte. Le rendement attendu est de 12.77 tonnes/ha.",
+    "question": "Quel est le retour sur investissement attendu pour le système d'irrigation ?"
+  },
+  {
+    "id": 98,
+    "domain": "Mobile Money",
+    "context": "Un commerçant à Kananga traite en moyenne 81 transactions mobile money par jour via Free Money. Le montant moyen par transaction est de 25278 XAF. Les frais sont de 2.01% par transaction.",
+    "question": "Quel est le volume quotidien traité et les frais totaux par mois ?"
+  },
+  {
+    "id": 99,
+    "domain": "Mobile Money",
+    "context": "Un agent M-Pesa à Bouaké a un float quotidien de 2626098 XAF. Il traite 116 dépôts et 47 retraits par jour. Sa commission est de 1.94% sur les dépôts et 1.35% sur les retraits.",
+    "question": "Quel est le revenu journalier de l'agent M-Pesa ?"
+  }
+]
