@@ -3,8 +3,8 @@ title: Buzy AI
 emoji: 🧠
 colorFrom: blue
 colorTo: green
-sdk: gradio
-sdk_version: 5.20.1
+sdk: streamlit
+sdk_version: 1.40.0
 app_file: app.py
 pinned: false
 license: apache-2.0
