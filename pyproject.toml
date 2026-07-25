@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "buzy-ai"
+version = "1.0.0"
+description = "Autonomous Operating System for Organizations — multimodal business reasoning with Gemma 4"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Destin Bir"},
+]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.8.0",
+    "transformers>=5.5.0",
+    "gradio>=5.0.0",
+    "accelerate>=1.0.0",
+    "pillow>=10.0.0",
+    "pymupdf>=1.24.0",
+    "python-docx>=1.1.0",
+    "peft>=0.15.0",
+]
+
+[project.urls]
+Source = "https://github.com/destinbir/buzy-ai"
