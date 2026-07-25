@@ -1,113 +1,122 @@
 import os
+import tempfile
 
-import gradio as gr
+import streamlit as st
 
 from src.inference import Buzy_inference
 
+st.set_page_config(page_title="Buzy AI", page_icon="🧠", layout="wide")
 
-def _sample_path(*parts):
-    sample_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sample_assets")
-    path = os.path.join(sample_dir, *parts)
-    return path if os.path.exists(path) else None
+st.markdown("# Buzy AI")
+st.markdown("### AI-Powered Document Intelligence for African Organizations")
+st.markdown(
+    "Upload documents, images, and meeting audio — ask a business question — "
+    "and get a structured, source-attributed analysis powered by **Gemma 4**."
+)
 
-
-def load_invoice_example():
-    path = _sample_path("invoice.pdf")
-    files = [path] if path else None
-    return files, None, None, "Summarize this invoice and flag any anomalies."
-
-
-def load_contract_example():
-    path = _sample_path("contract.pdf")
-    files = [path] if path else None
-    return files, None, None, "What are the key obligations and risks in this contract?"
-
-
-def load_meeting_example():
-    path = _sample_path("meeting.mp3")
-    files = [path] if path else None
-    return None, None, files, "Summarize the key decisions and action items from this meeting."
-
-
-def build_demo():
-    with gr.Blocks(title="Buzy AI", theme=gr.themes.Soft()) as demo:
-        gr.Markdown(
-            """
-            # Buzy AI
-            ### AI-Powered Document Intelligence for African Organizations
-
-            Upload documents, images, and meeting audio — ask a business question —
-            and get a structured, source-attributed analysis powered by **Gemma 4**.
-            """
+with st.expander("Upload files", expanded=True):
+    cols = st.columns(3)
+    with cols[0]:
+        image_files = st.file_uploader(
+            "Images (receipts, contracts, dashboards)",
+            type=["png", "jpg", "jpeg", "bmp", "tiff"],
+            accept_multiple_files=True,
+        )
+    with cols[1]:
+        document_files = st.file_uploader(
+            "Documents (PDF, DOCX, TXT)",
+            type=[".pdf", ".docx", ".txt"],
+            accept_multiple_files=True,
+        )
+    with cols[2]:
+        audio_files = st.file_uploader(
+            "Audio (meeting recordings)",
+            type=["mp3", "wav", "m4a", "ogg"],
+            accept_multiple_files=True,
         )
 
-        with gr.Row():
-            image_input = gr.File(
-                label="Upload Images (receipts, contracts, dashboards)",
-                file_count="multiple",
-                file_types=["image"],
-            )
-            document_input = gr.File(
-                label="Upload Documents (PDF, DOCX, TXT)",
-                file_count="multiple",
-                file_types=[".pdf", ".docx", ".txt"],
-            )
-            audio_input = gr.File(
-                label="Upload Audio (meeting recordings)",
-                file_count="multiple",
-                file_types=["audio"],
-            )
+question = st.text_area(
+    "Business Question",
+    placeholder="e.g. What are the biggest risks in this contract? Which supplier should we prioritize?",
+    height=100,
+)
 
-        prompt = gr.Textbox(
-            label="Business Question",
-            lines=4,
-            placeholder="e.g. What are the biggest risks in this contract? Which supplier should we prioritize?",
+if image_files:
+    st.markdown("#### Uploaded Images")
+    cols = st.columns(min(len(image_files), 4))
+    for i, f in enumerate(image_files):
+        cols[i % 4].image(f, use_container_width=True)
+
+st.markdown("#### Quick examples")
+ec1, ec2, ec3 = st.columns(3)
+sample_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sample_assets")
+
+q_invoice = "Summarize this invoice and flag any anomalies."
+q_contract = "What are the key obligations and risks in this contract?"
+q_meeting = "Summarize the key decisions and action items from this meeting."
+
+with ec1:
+    if st.button("Analyze Invoice", use_container_width=True):
+        st.session_state.example_question = q_invoice
+        st.rerun()
+with ec2:
+    if st.button("Review Contract", use_container_width=True):
+        st.session_state.example_question = q_contract
+        st.rerun()
+with ec3:
+    if st.button("Summarize Meeting", use_container_width=True):
+        st.session_state.example_question = q_meeting
+        st.rerun()
+
+if st.session_state.get("example_question") and not question:
+    question = st.session_state.example_question
+
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    analyze = st.button("Analyze", type="primary", use_container_width=True)
+
+if analyze:
+    temp_paths = []
+
+    def _save(files):
+        paths = []
+        if files:
+            for f in files:
+                suffix = os.path.splitext(f.name)[1]
+                with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+                    tmp.write(f.getvalue())
+                    paths.append(tmp.name)
+        return paths
+
+    img_paths = _save(image_files)
+    doc_paths = _save(document_files)
+    aud_paths = _save(audio_files)
+    temp_paths = img_paths + doc_paths + aud_paths
+
+    progress_bar = st.progress(0, text="Initializing...")
+
+    def _progress(v, desc=""):
+        progress_bar.progress(v, text=desc)
+
+    try:
+        report, images = Buzy_inference(
+            img_paths, doc_paths, aud_paths, question,
+            progress=_progress,
         )
+        st.session_state.report = report
+        st.session_state.analysis_images = images
+    finally:
+        for p in temp_paths:
+            try:
+                os.unlink(p)
+            except OSError:
+                pass
 
-        with gr.Row():
-            analyze_btn = gr.Button("Analyze", variant="primary", scale=2)
-            clear_btn = gr.ClearButton(
-                [image_input, document_input, audio_input, prompt, gallery, output],
-                value="Clear",
-            )
+    st.rerun()
 
-        gr.Markdown("#### Quick examples")
-        with gr.Row():
-            invoice_btn = gr.Button("Analyze Invoice")
-            contract_btn = gr.Button("Review Contract")
-            meeting_btn = gr.Button("Summarize Meeting")
-
-        gr.Markdown("---")
-
-        gallery = gr.Gallery(label="Uploaded Images", columns=4, height=200)
-        output = gr.Markdown(label="Business Analysis Report")
-
-        analyze_btn.click(
-            fn=Buzy_inference,
-            inputs=[image_input, document_input, audio_input, prompt],
-            outputs=[output, gallery],
-        )
-
-        invoice_btn.click(
-            fn=load_invoice_example,
-            inputs=[],
-            outputs=[document_input, image_input, audio_input, prompt],
-        )
-        contract_btn.click(
-            fn=load_contract_example,
-            inputs=[],
-            outputs=[document_input, image_input, audio_input, prompt],
-        )
-        meeting_btn.click(
-            fn=load_meeting_example,
-            inputs=[],
-            outputs=[image_input, document_input, audio_input, prompt],
-        )
-
-    return demo
-
-
-if __name__ == "__main__":
-    demo = build_demo()
-    port = int(os.environ.get("PORT", 7860))
-    demo.queue().launch(server_name="0.0.0.0", server_port=port)
+if "report" in st.session_state:
+    st.markdown(st.session_state.report)
+    if st.session_state.get("analysis_images"):
+        st.subheader("Extracted Images")
+        for img in st.session_state.analysis_images:
+            st.image(img)
