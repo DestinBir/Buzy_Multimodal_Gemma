@@ -58,22 +58,22 @@ def load_models():
             "pip install torch transformers accelerate peft bitsandbytes"
         )
 
+    if DEVICE == "cpu":
+        raise RuntimeError(
+            "No GPU detected. Gemma 4 requires a CUDA-capable GPU.\n\n"
+            "Please deploy this app on a Hugging Face Space with a GPU "
+            "(e.g. T4 small) or run it locally with CUDA."
+        )
+
     base_model_id = _get_base_model_id()
     print(f"[Buzy AI] Loading base model '{base_model_id}' (4-bit) on {DEVICE} ...")
-
-    quant_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_compute_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_quant_type="nf4",
-    )
 
     _bundle.processor = AutoProcessor.from_pretrained(LORA_ADAPTER_ID)
 
     base = AutoModelForImageTextToText.from_pretrained(
         base_model_id,
-        quantization_config=quant_config,
         device_map="auto" if DEVICE == "cuda" else None,
+        torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
     )
 
     print(f"[Buzy AI] Applying LoRA adapter '{LORA_ADAPTER_ID}' ...")

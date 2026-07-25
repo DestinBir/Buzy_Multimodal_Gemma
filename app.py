@@ -48,7 +48,7 @@ if image_files:
     st.markdown("#### Uploaded Images")
     cols = st.columns(min(len(image_files), 4))
     for i, f in enumerate(image_files):
-        cols[i % 4].image(f, use_container_width=True)
+        cols[i % 4].image(f, width="stretch")
 
 st.markdown("#### Quick examples")
 ec1, ec2, ec3 = st.columns(3)
@@ -59,15 +59,15 @@ q_contract = "What are the key obligations and risks in this contract?"
 q_meeting = "Summarize the key decisions and action items from this meeting."
 
 with ec1:
-    if st.button("Analyze Invoice", use_container_width=True):
+    if st.button("Analyze Invoice", width="stretch"):
         st.session_state.example_question = q_invoice
         st.rerun()
 with ec2:
-    if st.button("Review Contract", use_container_width=True):
+    if st.button("Review Contract", width="stretch"):
         st.session_state.example_question = q_contract
         st.rerun()
 with ec3:
-    if st.button("Summarize Meeting", use_container_width=True):
+    if st.button("Summarize Meeting", width="stretch"):
         st.session_state.example_question = q_meeting
         st.rerun()
 
@@ -76,7 +76,7 @@ if st.session_state.get("example_question") and not question:
 
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    analyze = st.button("Analyze", type="primary", use_container_width=True)
+    analyze = st.button("Analyze", type="primary", width="stretch")
 
 if analyze:
     temp_paths = []
