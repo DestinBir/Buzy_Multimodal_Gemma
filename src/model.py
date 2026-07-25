@@ -1,18 +1,28 @@
+import json
 from dataclasses import dataclass
 from typing import Optional
 
 import torch
 
 try:
-    from transformers import AutoProcessor, AutoModelForImageTextToText, pipeline
+    from transformers import (
+        AutoProcessor,
+        AutoModelForImageTextToText,
+        BitsAndBytesConfig,
+        pipeline,
+    )
+    from peft import PeftModel
 except ImportError:
     AutoProcessor = None
     AutoModelForImageTextToText = None
+    BitsAndBytesConfig = None
     pipeline = None
+    PeftModel = None
 
-MODEL_ID = "DestinBir/buzy-ai-gemma4"
+LORA_ADAPTER_ID = "DestinBir/buzy-ai-gemma4-lora"
 WHISPER_MODEL_ID = "openai/whisper-small"
 MAX_NEW_TOKENS = 1024
+MAX_PROMPT_TOKENS = 4096
 DEVICE = "cuda" if (torch is not None and torch.cuda.is_available()) else "cpu"
 
 
@@ -27,6 +37,17 @@ class ModelBundle:
 _bundle = ModelBundle()
 
 
+def _get_base_model_id() -> str:
+    try:
+        from huggingface_hub import hf_hub_download
+        path = hf_hub_download(repo_id=LORA_ADAPTER_ID, filename="adapter_config.json")
+        with open(path) as f:
+            cfg = json.load(f)
+        return cfg.get("base_model_name_or_path", LORA_ADAPTER_ID)
+    except Exception:
+        return "unsloth/gemma-4-E2B-it-unsloth-bnb-4bit"
+
+
 def load_models():
     if _bundle.loaded:
         return _bundle
@@ -34,16 +55,29 @@ def load_models():
     if AutoProcessor is None or AutoModelForImageTextToText is None:
         raise RuntimeError(
             "transformers/torch not installed. Run: "
-            "pip install torch transformers accelerate"
+            "pip install torch transformers accelerate peft bitsandbytes"
         )
 
-    print(f"[Buzy AI] Loading merged model '{MODEL_ID}' on {DEVICE} ...")
-    _bundle.processor = AutoProcessor.from_pretrained(MODEL_ID)
-    _bundle.model = AutoModelForImageTextToText.from_pretrained(
-        MODEL_ID,
-        torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
+    base_model_id = _get_base_model_id()
+    print(f"[Buzy AI] Loading base model '{base_model_id}' (4-bit) on {DEVICE} ...")
+
+    quant_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4",
+    )
+
+    _bundle.processor = AutoProcessor.from_pretrained(LORA_ADAPTER_ID)
+
+    base = AutoModelForImageTextToText.from_pretrained(
+        base_model_id,
+        quantization_config=quant_config,
         device_map="auto" if DEVICE == "cuda" else None,
     )
+
+    print(f"[Buzy AI] Applying LoRA adapter '{LORA_ADAPTER_ID}' ...")
+    _bundle.model = PeftModel.from_pretrained(base, LORA_ADAPTER_ID)
 
     if DEVICE != "cuda":
         _bundle.model.to(DEVICE)
@@ -60,6 +94,12 @@ def load_models():
     return _bundle
 
 
+def count_tokens(text: str) -> int:
+    bundle = load_models()
+    tokens = bundle.processor.tokenizer.encode(text)
+    return len(tokens)
+
+
 def run_gemma(messages: list) -> str:
     bundle = load_models()
     processor = bundle.processor
@@ -72,6 +112,13 @@ def run_gemma(messages: list) -> str:
         return_dict=True,
         return_tensors="pt",
     ).to(model.device)
+
+    prompt_len = inputs["input_ids"].shape[-1]
+    if prompt_len > MAX_PROMPT_TOKENS:
+        raise RuntimeError(
+            f"Prompt too long ({prompt_len} tokens > {MAX_PROMPT_TOKENS} max). "
+            "Try uploading fewer or shorter documents."
+        )
 
     with torch.inference_mode():
         generated = model.generate(
