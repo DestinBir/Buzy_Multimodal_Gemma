@@ -1,0 +1,32 @@
+\frametitle{Structure du projet}
+\small
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \begin{lstlisting}
+Buzy_Multimodal_Gemma/
+  app.py
+  requirements.txt
+  pyproject.toml
+  LICENSE
+  src/
+    __init__.py
+    model.py
+    loaders.py
+    prompt.py
+    inference.py
+    \end{lstlisting}
+    \column{0.5\textwidth}
+    \begin{lstlisting}
+  notebooks/
+    buzy-ai-gemma4-lora.ipynb
+  assets/
+    architecture.png
+    business_decision_pipeline.png
+    knowledge_extraction_pipeline.png
+    business_knowledge_graph.png
+    ai_agent_workflow.png
+    retrieval_augmented_reasoning.png
+    LoRa_finetuning.png
+    thumbnail.png
+    \end{lstlisting}
+  \end{columns}

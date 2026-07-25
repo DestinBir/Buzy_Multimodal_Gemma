@@ -206,7 +206,7 @@ The fine-tuned model consistently produces structured JSON outputs with evidence
 
 ## 🤝 Contributing
 
-This project was built for the **GDG Gemma 4 Hackathon**. Contributions, issues, and feature requests are welcome!
+This project was built for the **GDGoCampus Gemma 4 Hackathon**. Contributions, issues, and feature requests are welcome!
 
 ---
 
@@ -218,5 +218,5 @@ This project was built for the **GDG Gemma 4 Hackathon**. Contributions, issues,
 
 <p align="center">
   Built with ❤️ using <a href="https://ai.google.dev/gemma">Gemma 4</a> by Google<br>
-  <sub>GDG Gemma 4 Hackathon 2026</sub>
+  <sub>GDGoCampus Gemma 4 Hackathon 2026</sub>
 </p>
