@@ -1,4 +1,7 @@
 import os
+
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
 import tempfile
 
 import streamlit as st
