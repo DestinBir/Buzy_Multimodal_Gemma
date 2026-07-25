@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/thumbnail.png" alt="Buzy AI" width="200"/>
   <h1>🧠 Buzy AI</h1>
-  <p><strong>Autonomous Operating System for Organizations</strong></p>
+  <p><strong>AI-Powered Document Intelligence for African Organizations</strong></p>
   <p>Transform messy business documents into structured, explainable decisions — powered by Gemma 4 + LoRA.</p>
 
   <p>
@@ -18,6 +18,7 @@
 
   <p>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
+    <a href="https://huggingface.co/spaces/DestinBir/buzy-ai"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-FF6F00?logo=huggingface" alt="HF Space"></a>
     <a href="https://www.kaggle.com/code/destinbir1/buzy-ai-gemma4-lora"><img src="https://img.shields.io/badge/kaggle-notebook-20BEFF?logo=kaggle" alt="Kaggle"></a>
     <a href="https://huggingface.co/DestinBir/buzy-ai-gemma4-lora"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-model-FF6F00" alt="HF Model"></a>
   </p>
@@ -27,26 +28,34 @@
 
 ## 🚨 The Problem
 
-Enterprises produce **contracts, invoices, meeting notes, dashboards, and reports** every day — scattered across PDFs, spreadsheets, images, and audio recordings. Extracting actionable insights requires hours of manual work.
+Across Africa, **80% of SMEs and cooperatives** operate without formal document management systems. Contracts, invoices, meeting minutes, and financial reports exist in isolation — scattered across paper, PDFs, images, and audio recordings.
 
-Answering questions like:
-- *"Which supplier represents the highest operational risk next quarter?"*
-- *"Why did the Q2 budget exceed forecast?"*
-- *"Should we renew this contract?"*
+In the DRC specifically:
+- **French and local languages** (Lingala, Swahili) mix in daily operations
+- **Unreliable internet** makes cloud-only solutions impractical
+- **Meeting decisions are lost** when only recorded as audio
+- **Manual document review** costs hours of productive time
 
-…can take days of cross-referencing documents.
+Answering simple questions like:
+- *"Which supplier represents the highest operational risk?"*
+- *"Why did our expenses exceed the budget?"*
+- *"Should we renew this supplier contract?"*
 
-## 💡 Solution
+…takes hours or days of cross-referencing documents across multiple formats.
 
-**Buzy AI** is a multimodal business reasoning system that:
+## 💡 Solution — AI for Local Impact
+
+**Buzy AI** is a multimodal document intelligence system that brings enterprise-grade document analysis to African organizations — no expensive ERP, no cloud subscription, no constant internet required.
 
 1. **Ingests** documents (PDF, DOCX, TXT), images (receipts, dashboards), and audio (meeting recordings)
 2. **Extracts** structured facts using Gemma 4's Vision-Language capabilities
-3. **Builds** a lightweight knowledge base
+3. **Builds** a lightweight, searchable knowledge base
 4. **Retrieves** relevant evidence for each business question
-5. **Generates** structured, source-attributed recommendations
+5. **Generates** structured, source-attributed recommendations — in English and French
 
 All powered by a **Gemma 4 model fine-tuned with LoRA** on a structured reasoning dataset.
+
+> **Local Impact:** A cooperative in Bukavu can upload supplier contracts in French, record meeting minutes as audio in Lingala, photograph paper receipts — and get the same structured intelligence a multinational gets from expensive ERP systems.
 
 ---
 
@@ -66,8 +75,8 @@ All powered by a **Gemma 4 model fine-tuned with LoRA** on a structured reasonin
 
 ## ✨ Features
 
-### 🖥️ Gradio Web App (`app.py`)
-Upload documents, images, and audio — ask a business question — get a structured Markdown report with citations.
+### 🖥️ Gradio Web App ([Live Demo](https://huggingface.co/spaces/DestinBir/buzy-ai))
+Upload documents, images, and audio — ask a business question — get a structured Markdown report with citations. Runs on Hugging Face Spaces or locally.
 
 ### 📓 Kaggle Notebook (`notebooks/`)
 Complete pipeline from scratch:
@@ -83,23 +92,29 @@ Complete pipeline from scratch:
 ### 🧩 What makes Buzy AI different
 - **Source-attributed outputs** — every claim cites the exact document
 - **Explainable reasoning** — evidence → reasoning → confidence → impact → actions
-- **Multimodal** — text, images, and audio in a single pipeline
+- **Multimodal** — text, scanned images, and audio in a single pipeline
 - **LoRA-efficient** — only 0.25% of parameters trained (12.6M of 5.1B)
-- **Local-first** — runs on consumer GPUs (T4, etc.)
+- **Local-first** — runs on a laptop, no internet required after setup
+- **Multilingual** — French and English for DRC's bilingual context
+- **AI for Local Impact** — designed for African organizations with unreliable infrastructure
 
 ---
 
 ## 🚀 Quickstart
 
-### 1. Clone & install
+### 1. Try the live demo
+
+**[Launch on Hugging Face Spaces](https://huggingface.co/spaces/DestinBir/buzy-ai)** — no installation needed.
+
+### 2. Clone & install (for local use)
 
 ```bash
-git clone https://github.com/your-username/buzy-ai.git
-cd buzy-ai
+git clone https://github.com/DestinBir/Buzy_Multimodal_Gemma.git
+cd Buzy_Multimodal_Gemma
 pip install -r requirements.txt
 ```
 
-### 2. Run the Gradio app
+### 3. Run locally
 
 ```bash
 python app.py
@@ -107,7 +122,7 @@ python app.py
 
 Open `http://localhost:7860` in your browser.
 
-### 3. Use cases
+### 4. Use cases
 
 | What to upload | Example question |
 |---|---|
@@ -116,7 +131,7 @@ Open `http://localhost:7860` in your browser.
 | 🎙️ Meeting recording | "Summarize the key decisions and action items." |
 | 📊 Dashboard screenshot | "What's the trend in Q2 spending by department?" |
 
-### 4. Or use the notebook
+### 5. Or use the notebook
 
 Open [`notebooks/buzy-ai-gemma4-lora.ipynb`](notebooks/buzy-ai-gemma4-lora.ipynb) on [Kaggle](https://www.kaggle.com/code/destinbir1/buzy-ai-gemma4-lora) or locally.
 
@@ -165,6 +180,10 @@ buzy-ai/
 ├── pyproject.toml              # Package metadata
 ├── LICENSE                     # Apache 2.0
 ├── .gitignore
+├── KAGGLE_WRITEUP.md           # Kaggle submission writeup
+├── VIDEO_SCRIPT.md             # 3-minute demo video script
+├── SPACE_README.md             # Hugging Face Space metadata
+├── presentation.tex            # LaTeX slide deck (PDF)
 ├── notebooks/
 │   └── buzy-ai-gemma4-lora.ipynb   # Full pipeline notebook
 ├── assets/                     # Architecture diagrams & images
@@ -206,7 +225,11 @@ The fine-tuned model consistently produces structured JSON outputs with evidence
 
 ## 🤝 Contributing
 
-This project was built for the **GDGoCampus Gemma 4 Hackathon**. Contributions, issues, and feature requests are welcome!
+This project was built for the **GDG on Campus UCB — Build with Gemma 2026 Hackathon**. Contributions, issues, and feature requests are welcome!
+
+- [Kaggle Writeup](KAGGLE_WRITEUP.md) — detailed technical report
+- [Demo Video Script](VIDEO_SCRIPT.md) — 3-minute walkthrough
+- [LaTeX Presentation](presentation.tex) — slide deck (PDF)
 
 ---
 
@@ -214,9 +237,13 @@ This project was built for the **GDGoCampus Gemma 4 Hackathon**. Contributions, 
 
 [Apache 2.0](LICENSE)
 
+## 📺 Demo Video
+
+Watch the 3-minute demo: [Link to YouTube/Loom]
+
 ---
 
 <p align="center">
   Built with ❤️ using <a href="https://ai.google.dev/gemma">Gemma 4</a> by Google<br>
-  <sub>GDGoCampus Gemma 4 Hackathon 2026</sub>
+  <sub>GDG on Campus UCB — Build with Gemma 2026</sub>
 </p>

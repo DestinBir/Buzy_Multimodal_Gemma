@@ -7,18 +7,18 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 
-\definecolor{GDGoCampusblue}{HTML}{4285F4}
-\definecolor{GDGoCampusgreen}{HTML}{34A853}
-\definecolor{GDGoCampusyellow}{HTML}{FBBC05}
-\definecolor{GDGoCampusred}{HTML}{EA4335}
-\setbeamercolor{frametitle}{bg=GDGoCampusblue}
-\setbeamercolor{progress bar}{fg=GDGoCampusblue,bg=gray!20}
+\definecolor{gdgblue}{HTML}{4285F4}
+\definecolor{gdggreen}{HTML}{34A853}
+\definecolor{gdgyellow}{HTML}{FBBC05}
+\definecolor{gdgred}{HTML}{EA4335}
+\setbeamercolor{frametitle}{bg=gdgblue}
+\setbeamercolor{progress bar}{fg=gdgblue,bg=gray!20}
 
 \graphicspath{{./assets/}}
 
 \title{Buzy AI}
-\subtitle{Système d'exploitation autonome pour les organisations}
-\date{GDGoCampus Gemma 4 Hackathon 2026}
+\subtitle{AI-Powered Document Intelligence for African Organizations}
+\date{GDG on Campus UCB — Build with Gemma 2026}
 \author{Destin Bir}
 
 \begin{document}
@@ -27,22 +27,24 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Le problème}
+\begin{frame}{The Problem: Document Chaos in African Organizations}
   \begin{columns}[T]
     \column{0.6\textwidth}
-    Les entreprises produisent chaque jour des \alert{contrats, factures, comptes-rendus, tableaux de bord} — dispersés entre PDF, tableurs, images et enregistrements audio.
-    \vspace{1em}
+    Across Africa, SMEs, cooperatives, and NGOs manage critical decisions using documents scattered across paper, PDFs, images, and audio recordings.
+    \vspace{0.5em}
     \begin{itemize}
-      \item Extraire des informations exploitables prend des \alert{heures de travail manuel}
-      \item Les documents sont dans \alert{des formats hétérogènes} non connectés
+      \item \alert{No centralized knowledge} — contracts, invoices, meeting notes live in silos
+      \item \alert{Manual analysis} takes hours or days
+      \item \alert{Institutional knowledge walks away} when staff leave
+      \item \alert{Language barriers} — French, English, Lingala, Swahili documents mixed
     \end{itemize}
-    \vspace{1em}
-    \textbf{Exemples de questions :}
+    \vspace{0.5em}
+    \textbf{Real questions organizations ask:}
     \begin{quote}
-      ``Quel fournisseur représente le plus grand risque opérationnel le trimestre prochain ?''
+      ``Which supplier is most reliable for our cooperative?''
     \end{quote}
     \begin{quote}
-      ``Faut-il renouveler ce contrat ?''
+      ``Why did our Q2 expenses exceed the budget?''
     \end{quote}
 
     \column{0.4\textwidth}
@@ -51,18 +53,17 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Solution}
-  \textbf{Buzy AI} est un système de raisonnement métier multimodal qui transforme des documents bruts en décisions structurées et explicables.
-  \vspace{0.5em}
+\begin{frame}{Why This Matters for DRC \& Africa}
   \begin{columns}[T]
     \column{0.6\textwidth}
-    \begin{enumerate}
-      \item \textbf{Ingestion} de documents (PDF, DOCX, TXT), images et audio
-      \item \textbf{Extraction} de faits structurés via Gemma 4 Vision-Language
-      \item \textbf{Construction} d'une base de connaissances légère
-      \item \textbf{Recherche} des preuves pertinentes pour chaque question
-      \item \textbf{Génération} de recommandations structurées avec sources
-    \end{enumerate}
+    \begin{itemize}
+      \item \textbf{80\% of African SMEs} operate without formal document management systems
+      \item \textbf{Manual contract review} costs small businesses \$500+ per contract in lost productivity
+      \item \textbf{Meeting decisions} are lost when only recorded as audio — no transcription, no search
+      \item \textbf{Multilingual reality} — French administration, local languages for operations
+    \end{itemize}
+    \vspace{0.5em}
+    \textbf{Buzy AI bridges the gap:} no expensive ERP, no cloud subscription — runs on a laptop, works offline, speaks French and English.
 
     \column{0.4\textwidth}
     \centering
@@ -70,298 +71,257 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Architecture du pipeline décisionnel}
-  \centering
-  \includegraphics[width=0.75\textwidth,keepaspectratio]{business_decision_pipeline.png}
+\begin{frame}{Solution: Buzy AI}
+  \textbf{Buzy AI} is a multimodal document intelligence system that transforms raw business documents into structured, explainable decisions.
   \vspace{0.5em}
-  \begin{itemize}
-    \item Données brutes $\rightarrow$ analyse multimodale $\rightarrow$ extraction $\rightarrow$ base de connaissances $\rightarrow$ raisonnement $\rightarrow$ recommandations
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Pipeline d'extraction de connaissances}
-  \centering
-  \includegraphics[width=0.65\textwidth,height=0.65\textheight,keepaspectratio]{knowledge_extraction_pipeline.png}
-  \vspace{0.3em}
-  \begin{itemize}
-    \item Entités extraites : fournisseurs, contrats, factures, projets, risques
-    \item Chaque fait est rattaché à son document source
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Compréhension multimodale de documents}
   \begin{columns}[T]
     \column{0.6\textwidth}
-    \textbf{Capacités Vision-Language de Gemma 4 :}
+    \begin{enumerate}
+      \item \textbf{Ingest} PDFs, DOCX, images (receipts, dashboards), and audio recordings
+      \item \textbf{Extract} structured facts using Gemma 4 Vision-Language
+      \item \textbf{Build} a searchable knowledge base
+      \item \textbf{Retrieve} relevant evidence for any business question
+      \item \textbf{Generate} structured recommendations with source citations
+    \end{enumerate}
     \vspace{0.5em}
-    \begin{itemize}
-      \item Analyse de factures, reçus, contrats scannés
-      \item Extraction JSON structurée (fournisseur, montant, dates)
-      \item Traitement de tableaux de bord et captures d'écran
-    \end{itemize}
-    \vspace{0.5em}
-    \begin{exampleblock}{Extraction de facture}
-      \small
-      \texttt{Entrée :} image de facture \\
-      \texttt{Sortie :} \{\,"supplier": "LOGISTIQUE \& FOURNITURES SARL",\\
-      \hspace*{5em}"invoice\_id": "INV-8942-FR",\\
-      \hspace*{5em}"due\_date": "18 Mai 2026",\\
-      \hspace*{5em}"amount": "650,00 €"\,\}
-    \end{exampleblock}
+    \textbf{AI for Local Impact:} Designed for African organizations with unreliable internet, mixed document formats, and multilingual needs.
 
     \column{0.4\textwidth}
     \centering
-    \includegraphics[width=\textwidth,keepaspectratio]{invoice_vision_extraction.png}
+    \includegraphics[width=\textwidth,keepaspectratio]{business_decision_pipeline.png}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Graphe de connaissances métier}
+\begin{frame}{Architecture}
   \centering
-  \includegraphics[width=0.8\textwidth,keepaspectratio]{business_knowledge_graph.png}
+  \includegraphics[width=0.75\textwidth,keepaspectratio]{business_decision_pipeline.png}
   \vspace{0.5em}
-  \begin{itemize}
-    \item Relations entre fournisseurs, projets, contrats et factures
-    \item Types de faits : retard de paiement, expiration, risque livraison, variance budgétaire
-  \end{itemize}
+  Raw documents $\rightarrow$ multimodal analysis $\rightarrow$ fact extraction $\rightarrow$ knowledge base $\rightarrow$ reasoning $\rightarrow$ recommendations
 \end{frame}
 
-\begin{frame}{Fine-tuning LoRA}
+\begin{frame}{How Gemma 4 Powers the Solution}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \textbf{Gemma 4 Capabilities Used:}
+    \begin{itemize}
+      \item \textbf{Vision-Language:} Read scanned invoices, receipts, handwritten notes, dashboards
+      \item \textbf{Multilingual:} Understand French, English, and code-switched documents
+      \item \textbf{Structured generation:} Output JSON with evidence, reasoning, confidence
+      \item \textbf{Reasoning:}  Chain-of-thought for explainable business decisions
+      \item \textbf{LoRA fine-tuning:}  Adapted for structured business reasoning
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{exampleblock}{Invoice Extraction with Gemma 4 Vision}
+      \small
+      \texttt{Input:} Scanned invoice image \\
+      \texttt{Output:} \{\,"supplier": "...",\\
+      \hspace*{4.5em}"amount": "42 300 USD",\\
+      \hspace*{4.5em}"due\_date": "2026-06-01",\\
+      \hspace*{4.5em}"status": "paid 18 days late"\,\}
+    \end{exampleblock}
+    \vspace{0.5em}
+    \centering
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{invoice_vision_extraction.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fine-Tuning with LoRA}
   \centering
-  \includegraphics[width=0.5\textwidth,height=0.5\textheight,keepaspectratio]{LoRa_finetuning.png}
+  \includegraphics[width=0.45\textwidth,height=0.5\textheight,keepaspectratio]{LoRa_finetuning.png}
   \vspace{0.3em}
   \begin{columns}[T]
     \column{0.5\textwidth}
     \begin{itemize}
-      \item Adaptateurs LoRA de \alert{rang 8}
-      \item Couches langage seulement (vision gelée)
-      \item 4 exemples de raisonnement structuré
+      \item \alert{Rank 8} LoRA adapters on language layers
+      \item Trained on 4 structured reasoning examples
+      \item \alert{20 epochs}, final loss \alert{0.299}
     \end{itemize}
     \column{0.5\textwidth}
     \begin{itemize}
-      \item \alert{20 époques} d'entraînement
-      \item \alert{0,25\%} des paramètres (12,6M / 5,1Mds)
-      \item Perte finale : \alert{0,299}
-      \item Kaggle (2$\times$ T4, $\sim$57s)
+      \item Only \alert{0.25\%} of parameters trained (12.6M of 5.1B)
+      \item Training: \alert{57 seconds} on Kaggle (2x T4)
+      \item Weights: \href{https://huggingface.co/DestinBir/buzy-ai-gemma4-lora}{DestinBir/buzy-ai-gemma4-lora}
     \end{itemize}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Structure du jeu de données de raisonnement}
-  Chaque exemple suit un schéma JSON strict :
-  \vspace{0.5em}
-  \begin{columns}[T]
-    \column{0.5\textwidth}
-    \begin{block}{Entrée}
-      \small
-      \texttt{Question métier :} \\
-      Quel fournisseur présente \\
-      le plus grand risque ? \\
-      \vspace{0.3em}
-      \texttt{Faits pertinents :} \\
-      - 18 jours de retard de paiement \\
-      - 2 projets dépendent d'Atlas \\
-      - Contrat expire dans 27 jours \\
-      - Instabilité de livraison signalée
-    \end{block}
-    \column{0.5\textwidth}
-    \begin{block}{Sortie}
-      \small
-      \texttt{\{} \\
-      \quad "evidence": [...], \\
-      \quad "reasoning": [...], \\
-      \quad "confidence": 0.82, \\
-      \quad "business\_impact": "...", \\
-      \quad "recommended\_actions": [...] \\
-      \texttt{\}}
-    \end{block}
-  \end{columns}
+\begin{frame}{Knowledge Extraction Pipeline}
+  \centering
+  \includegraphics[width=0.65\textwidth,height=0.55\textheight,keepaspectratio]{knowledge_extraction_pipeline.png}
+  \vspace{0.3em}
+  Entities extracted: suppliers, contracts, invoices, projects, delivery risks, budget variances
 \end{frame}
 
-\begin{frame}{Raisonnement augmenté par récupération}
+\begin{frame}{Retrieval-Augmented Reasoning}
   \centering
-  \includegraphics[width=0.65\textwidth,height=0.55\textheight,keepaspectratio]{retrieval_augmented_reasoning.png}
+  \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{retrieval_augmented_reasoning.png}
+  \vspace{0.3em}
+  \begin{enumerate}
+    \item Facts retrieved from knowledge base by keyword
+    \item Gemma 4 generates reasoning chain
+    \item Output: evidence $\rightarrow$ reasoning $\rightarrow$ confidence $\rightarrow$ impact $\rightarrow$ actions
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{AI Agent with Tool Use}
+  \centering
+  \includegraphics[width=0.55\textwidth,height=0.5\textheight,keepaspectratio]{ai_agent_workflow.png}
   \vspace{0.3em}
   \begin{itemize}
-    \item Recherche par mot-clé dans la base de connaissances
-    \item Gemma 4 génère une chaîne de raisonnement explicite
-    \item \alert{Explicable} : preuves $\rightarrow$ raisonnement $\rightarrow$ confiance $\rightarrow$ impact $\rightarrow$ actions
+    \item Gemma 4 selects which business tool to call based on user question
+    \item Tools: \texttt{get\_invoice\_status()}, \texttt{get\_contract\_expiry()}
+    \item Tool result fed back for final answer generation
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemple d'analyse métier}
+\begin{frame}{Live Scenario: Supplier Risk Analysis}
   \begin{columns}[T]
     \column{0.55\textwidth}
-    \textbf{Question :} Quel fournisseur présente le plus grand risque opérationnel ?
+    \textbf{Context:} A Congolese procurement cooperative manages 6 suppliers
+
+    \textbf{Question:} Which supplier represents the highest operational risk?
     \vspace{0.5em}
     \begin{itemize}
-      \item \alert{Preuves :} Retard de 18 jours, instabilité livraison (2 réunions), contrat expire dans 27 jours
-      \item \alert{Raisonnement :} Retards répétés + dépendance exclusive du Projet Phoenix
-      \item \alert{Confiance :} \textcolor{GDGoCampusgreen}{Élevée (0,82)}
+      \item \alert{Evidence:} 18-day payment delay average, delivery instability flagged in 2 meetings, contract expiring in 27 days
+      \item \alert{Reasoning:} Repeated delays + sole-source dependency on critical project
+      \item \alert{Confidence:} \textcolor{gdggreen}{High (0.82)}
     \end{itemize}
 
     \column{0.45\textwidth}
-    \textbf{Impact :} Risque de retard de 2 semaines pour le Projet Phoenix
-    \vspace{0.5em}
-    \textbf{Actions :}
+    \textbf{Impact:} 2-week project delay risk; unfavorable renewal terms
+
+    \textbf{Actions:}
     \begin{enumerate}
-      \item Négocier le renouvellement immédiatement
-      \item Qualifier un fournisseur secondaire
-      \item Renforcer le processus d'approbation des paiements
+      \item Begin renewal negotiations immediately
+      \item Qualify a secondary supplier
+      \item Escalate payment approvals
     \end{enumerate}
+    \vspace{0.5em}
+    \alert{All recommendations cite exact source documents}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Agent IA avec utilisation d'outils}
-  \centering
-  \includegraphics[width=0.6\textwidth,height=0.55\textheight,keepaspectratio]{ai_agent_workflow.png}
-  \vspace{0.3em}
-  \begin{itemize}
-    \item Gemma 4 choisit l'outil à appeler selon la question posée
-    \item Outils : \texttt{get\_invoice\_status()}, \texttt{get\_contract\_expiry()}
-    \item Le résultat de l'outil est réinjecté pour générer la réponse finale
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Raisonnement multilingue}
+\begin{frame}{Multilingual Reasoning}
+  \textbf{Gemma 4 enables business analysis in both French and English:}
+  \vspace{0.5em}
   \begin{columns}[T]
     \column{0.5\textwidth}
-    \textbf{Anglais}
+    \textbf{English}
     \begin{quote}
       ``Which supplier represents the highest operational risk next quarter?''
     \end{quote}
-    $\rightarrow$ JSON structuré avec preuves, raisonnement, confiance
+    $\rightarrow$ Structured JSON with evidence, reasoning, confidence
 
     \column{0.5\textwidth}
-    \textbf{Français}
+    \textbf{French}
     \begin{quote}
       ``Quel fournisseur représente le plus grand risque opérationnel le trimestre prochain ?''
     \end{quote}
-    $\rightarrow$ Même structure JSON en français
+    $\rightarrow$ Same JSON structure in French
   \end{columns}
-  \vspace{1em}
-  \begin{alertblock}{}
-    \centering
-    \alert{Même qualité de raisonnement} dans les deux langues \\
-    \small (Testé avec des documents métier français)
-  \end{alertblock}
+  \vspace{0.5em}
+  \alert{Critical for DRC:} French administration + local languages in daily operations
 \end{frame}
 
-\begin{frame}{Application Gradio}
+\begin{frame}{Gradio Web Application}
   \centering
-  \textbf{Analyse multimodale interactive :}
+  \textbf{Deployed on Hugging Face Spaces:}
   \vspace{0.5em}
   \begin{columns}[T]
     \column{0.55\textwidth}
     \begin{itemize}
-      \item Import d'images, PDF/DOCX/TXT, audio
-      \item Posez n'importe quelle question métier
-      \item Exemples en un clic (facture, contrat, réunion)
-      \item Rapport Markdown avec sources citées
+      \item Upload images, PDF/DOCX/TXT, audio
+      \item Ask any business question in English or French
+      \item One-click examples (invoice, contract, meeting)
+      \item Source-attributed Markdown reports
     \end{itemize}
-    \vspace{1em}
+    \vspace{0.5em}
     \texttt{python app.py} \\
-    $\rightarrow$ \texttt{http://localhost:7860}
+    $\rightarrow$ localhost:7860
 
     \column{0.45\textwidth}
-    \textbf{Fonctionnalités :}
+    \textbf{Features:}
     \begin{itemize}
-      \item Chargement paresseux des modèles
-      \item Barre de progression Gradio
-      \item Détection automatique CUDA
-      \item ASR Whisper pour l'audio
-      \item Galerie des images importées
+      \item Lazy model loading (fast startup)
+      \item Gradio progress tracking
+      \item CUDA auto-detection
+      \item Whisper ASR for meeting audio
+      \item Works on CPU (no GPU required)
     \end{itemize}
   \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Structure du projet}
-  \small
-  \begin{columns}[T]
-    \column{0.5\textwidth}
-    \begin{lstlisting}
-Buzy_Multimodal_Gemma/
-  app.py
-  requirements.txt
-  pyproject.toml
-  LICENSE
-  src/
-    __init__.py
-    model.py
-    loaders.py
-    prompt.py
-    inference.py
-    \end{lstlisting}
-    \column{0.5\textwidth}
-    \begin{lstlisting}
-  notebooks/
-    buzy-ai-gemma4-lora.ipynb
-  assets/
-    architecture.png
-    business_decision_pipeline.png
-    knowledge_extraction_pipeline.png
-    business_knowledge_graph.png
-    ai_agent_workflow.png
-    retrieval_augmented_reasoning.png
-    LoRa_finetuning.png
-    thumbnail.png
-    \end{lstlisting}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Stack technique}
+\begin{frame}{Tech Stack}
   \centering
   \begin{tabular}{ll}
     \toprule
-    \textbf{Couche} & \textbf{Technologie} \\
+    \textbf{Layer} & \textbf{Technology} \\
     \midrule
-    Modèle de base & Gemma 4 (E2B-it) quantifié 4-bit \\
+    Base Model & Gemma 4 (E2B-it) 4-bit quantized \\
     Fine-tuning & LoRA via Unsloth \\
-    Poids entraînés & DestinBir/buzy-ai-gemma4-lora \\
-    Application & Gradio \\
-    Reconnaissance vocale & Whisper (openai/whisper-small) \\
-    Parsing documents & PyMuPDF, python-docx \\
-    Entraînement & TRL (SFTTrainer) \\
-    Plateforme & Kaggle (2$\times$ T4 GPU) \\
+    Fine-tuned Weights & DestinBir/buzy-ai-gemma4-lora \\
+    Web App & Gradio on Hugging Face Spaces \\
+    Speech-to-Text & Whisper (openai/whisper-small) \\
+    Document Parsing & PyMuPDF, python-docx \\
+    Training Framework & TRL (SFTTrainer) \\
+    Training Platform & Kaggle (2x T4 GPU) \\
     \bottomrule
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Résultats clés}
+\begin{frame}{Results}
   \centering
   \begin{tabular}{lr}
     \toprule
-    \textbf{Métrique} & \textbf{Valeur} \\
+    \textbf{Metric} & \textbf{Value} \\
     \midrule
-    Modèle de base & Gemma 4 (E2B-it)  \\
-    Méthode de fine-tuning & LoRA (rang 8) \\
-    Paramètres entraînés & 12,6M / 5,1Mds (0,25\%) \\
-    Époques d'entraînement & 20 \\
-    Perte finale & 0,299 \\
-    Temps d'entraînement & $\sim$57s (2$\times$ T4) \\
-    Dispositif d'inférence & CPU ou CUDA \\
-    Poids du modèle & Hugging Face \\
+    Base Model & Gemma 4 (E2B-it) \\
+    Fine-tuning Method & LoRA (rank 8) \\
+    Trainable Parameters & 12.6M / 5.1B (0.25\%) \\
+    Training Epochs & 20 \\
+    Final Loss & 0.299 \\
+    Training Time & $\sim$57s (2x T4) \\
+    Inference & CPU or CUDA \\
+    Deployment & Hugging Face Spaces \\
     \bottomrule
   \end{tabular}
-  \vspace{1.5em}
-  \begin{alertblock}{}
-    \centering
-    \href{https://huggingface.co/DestinBir/buzy-ai-gemma4-lora}{Hugging Face -- DestinBir/buzy-ai-gemma4-lora}
-  \end{alertblock}
 \end{frame}
 
-\begin{frame}{Liens}
+\begin{frame}{Impact and Future Work}
+  \textbf{Current impact:}
+  \begin{itemize}
+    \item Transforms hours of manual document review into seconds
+    \item Source-attributed output builds trust and verifiability
+    \item Runs locally — no internet required after setup
+    \item Supports French and English for DRC context
+  \end{itemize}
+  \vspace{0.5em}
+  \textbf{Future work:}
+  \begin{itemize}
+    \item Add Lingala and Swahili support
+    \item Mobile app for field data collection
+    \item Voice interface for low-literacy users
+    \item Integration with local accounting software (e.g., Sage, QuickBooks)
+    \item Offline-first with PWA
+    \item Fine-tune on real African business documents
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Links}
   \centering
   \vspace{1em}
   \begin{tabular}{rl}
     \faicon{github} & \href{https://github.com/DestinBir/Buzy_Multimodal_Gemma}{github.com/DestinBir/Buzy\_Multimodal\_Gemma} \\[1em]
-    \faicon{huggingface} & \href{https://huggingface.co/DestinBir/buzy-ai-gemma4-lora}{huggingface.co/DestinBir/buzy-ai-gemma4-lora} \\[1em]
-    \faicon{kaggle} & \href{https://www.kaggle.com/code/destinbir1/buzy-ai-gemma4-lora}{kaggle.com/destinbir1/buzy-ai-gemma4-lora}
+    \faicon{huggingface} & \href{https://huggingface.co/spaces/DestinBir/buzy-ai}{huggingface.co/spaces/DestinBir/buzy-ai} \\[1em]
+    \faicon{huggingface} & \href{https://huggingface.co/DestinBir/buzy-ai-gemma4-lora}{Model: DestinBir/buzy-ai-gemma4-lora} \\[1em]
+    \faicon{kaggle} & \href{https://www.kaggle.com/code/destinbir1/buzy-ai-gemma4-lora}{Kaggle Notebook}
   \end{tabular}
   \vspace{2em}
   \begin{center}
-    \Large Merci ! \\[0.5em]
-    \normalsize GDGoCampus Gemma 4 Hackathon 2026 \\[0.5em]
-    \small Propulsé par \href{https://ai.google.dev/gemma}{Gemma 4} de Google
+    \Large Thank you! \\[0.5em]
+    \normalsize GDG on Campus UCB — Build with Gemma 2026 \\[0.5em]
+    \small Built with \href{https://ai.google.dev/gemma}{Gemma 4} by Google
   \end{center}
 \end{frame}
 

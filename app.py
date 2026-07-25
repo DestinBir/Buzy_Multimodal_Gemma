@@ -30,27 +30,30 @@ def load_meeting_example():
 
 
 def build_demo():
-    with gr.Blocks(title="Buzy AI") as demo:
-        gr.Markdown("# Buzy AI")
-        gr.Markdown("### Autonomous Operating System for Organizations")
+    with gr.Blocks(title="Buzy AI", theme=gr.themes.Soft()) as demo:
         gr.Markdown(
-            "Upload documents, images, and meeting audio, ask a business question, "
-            "and get a structured, source-attributed analysis."
+            """
+            # Buzy AI
+            ### AI-Powered Document Intelligence for African Organizations
+
+            Upload documents, images, and meeting audio — ask a business question —
+            and get a structured, source-attributed analysis powered by **Gemma 4**.
+            """
         )
 
         with gr.Row():
             image_input = gr.File(
-                label="Upload Images",
+                label="Upload Images (receipts, contracts, dashboards)",
                 file_count="multiple",
                 file_types=["image"],
             )
             document_input = gr.File(
-                label="Upload Documents",
+                label="Upload Documents (PDF, DOCX, TXT)",
                 file_count="multiple",
                 file_types=[".pdf", ".docx", ".txt"],
             )
             audio_input = gr.File(
-                label="Upload Audio",
+                label="Upload Audio (meeting recordings)",
                 file_count="multiple",
                 file_types=["audio"],
             )
@@ -58,17 +61,17 @@ def build_demo():
         prompt = gr.Textbox(
             label="Business Question",
             lines=4,
-            placeholder="e.g. What are the biggest risks in this contract, and what should we do about them?",
+            placeholder="e.g. What are the biggest risks in this contract? Which supplier should we prioritize?",
         )
 
         with gr.Row():
-            analyze_btn = gr.Button("Analyze", variant="primary")
+            analyze_btn = gr.Button("Analyze", variant="primary", scale=2)
             clear_btn = gr.ClearButton(
                 [image_input, document_input, audio_input, prompt, gallery, output],
                 value="Clear",
             )
 
-        gr.Markdown("#### One-click examples")
+        gr.Markdown("#### Quick examples")
         with gr.Row():
             invoice_btn = gr.Button("Analyze Invoice")
             contract_btn = gr.Button("Review Contract")
@@ -76,7 +79,7 @@ def build_demo():
 
         gr.Markdown("---")
 
-        gallery = gr.Gallery(label="Uploaded Images", columns=4, height=200, visible=True)
+        gallery = gr.Gallery(label="Uploaded Images", columns=4, height=200)
         output = gr.Markdown(label="Business Analysis Report")
 
         analyze_btn.click(
@@ -106,4 +109,5 @@ def build_demo():
 
 if __name__ == "__main__":
     demo = build_demo()
-    demo.queue().launch(theme=gr.themes.Soft())
+    port = int(os.environ.get("PORT", 7860))
+    demo.queue().launch(server_name="0.0.0.0", server_port=port)
